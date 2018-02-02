@@ -31,14 +31,29 @@ public class MainActivity extends AppCompatActivity {
         inflater.inflate(R.menu.menu_main, menu);
 //        getMenuInflater().inflate(R.menu.menu_main, menu);
 
-//        MenuItem menuItem = menu.findItem(R.id.action_share);
-//        shareActionProvider =
-//                (ShareActionProvider) MenuItemCompat.getActionProvider(menuItem);
-//        setShareActionIntent("Want to join me for pizza?");
-//        return super.onCreateOptionsMenu(menu);
+        /*
+        * Realisation for resend for getting information from menu
+        *
+        * get lin on provider actions sending information
+        * and set is as private variable
+        * then, call method setIntent
+        * */
+        MenuItem menuItem = menu.findItem(R.id.action_share);
+        shareActionProvider =
+                (ShareActionProvider) MenuItemCompat.getActionProvider(menuItem);
+
+        /*
+        * This text will be send on shareAction intent
+        * */
+        setShareActionIntent("Want to join me for pizza?");
+
         return true;
     }
 
+    /**
+     * We create method which create Intent and send him to provider action
+     * in his method setShareIntent
+     * */
     private void setShareActionIntent(String text) {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
