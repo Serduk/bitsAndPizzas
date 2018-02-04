@@ -13,6 +13,8 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity {
     private ShareActionProvider shareActionProvider;
 
+    private int orderClickedCount = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(this, OrderActivity.class);
                 startActivity(intent);
                 System.out.println("action_create_order clicked");
+                System.out.println(orderClickedCount++);
                 return true;
             case R.id.action_settings:
                 System.out.println("action_strings clicked");
