@@ -19,7 +19,14 @@
         <activity
             android:name=".MainMenuActivity"
             android:label="@string/title_activity_main_menu" />
-        <activity android:name=".OrderActivity"></activity>
+        <activity android:name=".OrderActivity"
+            android:label="@string/title_activity_order"
+            android:parentActivityName=".MainActivity">
+            <!--For API 16 and bellow-->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
     </application>
 
 </manifest>

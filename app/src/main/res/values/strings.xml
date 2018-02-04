@@ -5,4 +5,5 @@
     <string name="action_share">Share</string>
     <string name="action_settings">Settings</string>
     <string name="settings">Settings</string>
+    <string name="title_activity_order">Activity Order</string>
 </resources>
