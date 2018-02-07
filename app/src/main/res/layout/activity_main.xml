@@ -8,6 +8,7 @@
     tools:context="com.sserdiuk.bitsandpizzas.MainActivity">
 
     <FrameLayout
+        android:id="@+id/content_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -19,6 +20,7 @@
         2. set background color for drawer
     -->
     <ListView
+        android:id="@+id/drawer"
         android:layout_width="240dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
