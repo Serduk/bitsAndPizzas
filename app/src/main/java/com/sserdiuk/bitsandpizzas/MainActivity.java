@@ -1,9 +1,11 @@
 package com.sserdiuk.bitsandpizzas;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.MenuItemCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.ShareActionProvider;
@@ -15,15 +17,21 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
     private ShareActionProvider shareActionProvider;
+    DrawerLayout drawerLayout;
 
     private String[] titles;
     private ListView drawerList;
 
+    List<String> titlesList;
+
     private int orderClickedCount = 0;
 
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +40,10 @@ public class MainActivity extends AppCompatActivity {
 //        setSupportActionBar(toolbar);
 
         titles = getResources().getStringArray(R.array.titles);
+        System.out.println("LIST OF TITLES COUNT : " + titles.length);
         drawerList = (ListView) findViewById(R.id.drawer);
+//        Get link on drawerLayout
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer);
         /*
         * switching mode simple_list_item_activated_1 ->
         * means: variant which was clicked by user will be highlighted
@@ -42,6 +53,15 @@ public class MainActivity extends AppCompatActivity {
 
 //        Add listener for items in left menu
         drawerList.setOnItemClickListener(new DrawerItemClickListener());
+
+        /*
+        * in first creating MainActivity
+        * use method selectItem()
+        * for displaying TopFragment
+        * */
+        if (savedInstanceState == null) {
+            selectItem(0);
+        }
     }
 
     /*
@@ -108,7 +128,6 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
             selectItem(position);
-
         }
     }
 
@@ -137,7 +156,8 @@ public class MainActivity extends AppCompatActivity {
         ft.commit();
 
         setActionBarTitle(position);
-    }
+        drawerLayout.closeDrawer(drawerList);
+}
 
     /**
      * method for changing header for menu
