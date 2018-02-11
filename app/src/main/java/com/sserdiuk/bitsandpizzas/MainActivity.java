@@ -226,8 +226,8 @@ public class MainActivity extends AppCompatActivity {
 //                (ShareActionProvider) MenuItem.getActionProvider(menu);
 //        setIntent("This is example text");
 
-        MenuItemCompat menuItemCompat = menu.findItem(R.id.action_share);
-        shareActionProvider = (ShareActionProvider) menuItemCompat.getActionProvider(menu);
+        MenuItem menuItem = menu.findItem(R.id.action_share);
+//        shareActionProvider = (ShareActionProvider) menuItem.getActionProvider();
 
 
         /*
