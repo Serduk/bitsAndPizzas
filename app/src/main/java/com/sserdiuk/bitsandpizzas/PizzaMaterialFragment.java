@@ -3,6 +3,8 @@ package com.sserdiuk.bitsandpizzas;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutCompat;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,6 +43,10 @@ public class PizzaMaterialFragment extends Fragment {
 //        Send array to adapter
         CaptionedImagesAdapter adapter = new CaptionedImagesAdapter(pizzaNames, pizzaImages);
         pizzaRecycler.setAdapter(adapter);
+
+//        Create special layout for  displayng all products in list like LinearLayoutManager
+        LinearLayoutManager layoutCompat = new LinearLayoutManager(getActivity());
+        pizzaRecycler.setLayoutManager(layoutCompat);
 
         // Inflate the layout for this fragment
         return pizzaRecycler;
