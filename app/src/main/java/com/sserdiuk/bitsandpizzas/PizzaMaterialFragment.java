@@ -1,6 +1,7 @@
 package com.sserdiuk.bitsandpizzas;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -44,6 +45,20 @@ public class PizzaMaterialFragment extends Fragment {
 //        Create special layout for  displayng all products in list like LinearLayoutManager
         LinearLayoutManager layoutCompat = new LinearLayoutManager(getActivity());
         pizzaRecycler.setLayoutManager(layoutCompat);
+
+        /*
+        * Realisation onClick() method
+        * From Interface Listener -> laucnh activity PizzaDetailActivity,
+        * and send her ID of Pizza, which was choosed by User
+        * */
+        adapter.setListener(new CaptionedImagesAdapter.Listener() {
+            @Override
+            public void onClick(int position) {
+                Intent intent = new Intent(getActivity(), PizzaDetailActivity.class);
+                intent.putExtra(PizzaDetailActivity.EXTRA_PIZZANO, position);
+                getActivity().startActivity(intent);
+            }
+        });
 
         // Inflate the layout for this fragment
         return pizzaRecycler;
