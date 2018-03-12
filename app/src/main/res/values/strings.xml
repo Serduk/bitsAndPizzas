@@ -12,6 +12,7 @@
 
     <string name="open_drawer">Open Drawer</string>
     <string name="close_drawer">Close Drawer</string>
+    <string name="title_activity_pizza_detail">Detail Activity</string>
 
     <string-array name="titles">
         <item>Home</item>
