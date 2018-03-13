@@ -48,7 +48,7 @@ public class PizzaMaterialFragment extends Fragment {
 
         /*
         * Realisation onClick() method
-        * From Interface Listener -> laucnh activity PizzaDetailActivity,
+        * From Interface Listener -> launch activity PizzaDetailActivity,
         * and send her ID of Pizza, which was choosed by User
         * */
         adapter.setListener(new CaptionedImagesAdapter.Listener() {
